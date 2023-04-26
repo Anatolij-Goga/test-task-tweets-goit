@@ -1,5 +1,7 @@
 # goit-test-task-tweets
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 Tweets App On React
 
 Goals of this project: Create tweet cards, add styles and add interactivity on
