@@ -10,8 +10,7 @@ export const Card = styled.div`
   height: 100%;
   border-radius: 20px;
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
-  background-image: url('/src/images/bg-1.png'),
-    url('/src/images/Logo-76x22.png');
+  background-image: url('images/bgi-1.png'), url('images/Logo-76x22.png');
   background-position: top 28px right 36px, top 20px left 20px;
   background-repeat: no-repeat, no-repeat;
   color: #ebd8ff;
