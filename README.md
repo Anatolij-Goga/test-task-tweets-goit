@@ -15,8 +15,6 @@ Other things implemented in a project:
 4. Created a routing using React Router with two pages: Home and Tweets;
 5. Added dropdown filtering with three options: show all, follow and followings.
 
-This project was created with vite Vite https://vitejs.dev/ .
-
 Such libraries were used while creating this project:
 
 - React,
