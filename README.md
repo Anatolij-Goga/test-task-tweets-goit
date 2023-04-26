@@ -21,7 +21,6 @@ Such libraries were used while creating this project:
 - React-dom,
 - React-router-dom,
 - React-dropdown,
-- React-hot-toast,
 - React-spinners,
 - Styled-components,
 - Axios.
