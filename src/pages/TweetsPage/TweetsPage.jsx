@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import { saveToStorage, loadFromStorage } from "../../services/storage";
-import { fetchTweets, updateFollowers } from "../../services/tweetsAPI";
-import BackLink from "../../components/BackLink/BackLink";
-import TweetsList from "../../components/TweetCardsList/TweetCardsList";
-import Button from "../../components/Button/Button";
-import Loader from "../../components/Loader/Loader";
-import DropDownMenu from "../../components/DropDownMenu/DropDownMenu";
-import { Section, NoSubscriptions } from "./TweetsPage.styled";
+import { useEffect, useState } from 'react';
+import { saveToStorage, loadFromStorage } from '../../services/storage';
+import { fetchTweets, updateFollowers } from '../../services/tweetsAPI';
+import BackLink from '../../components/BackLink/BackLink';
+import TweetsList from '../../components/TweetCardsList/TweetCardsList';
+import Button from '../../components/Button/Button';
+import Loader from '../../components/Loader/Loader';
+import DropDownMenu from '../../components/DropDownMenu/DropDownMenu';
+import { Section, NoSubscriptions } from './TweetsPage.styled';
 
 const TweetsPage = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState("show all");
+  const [selectedFilter, setSelectedFilter] = useState('show all');
   const [page, setPage] = useState(1);
   const [isLoadMoreVisible, setIsLoadMoreVisible] = useState(true);
 
@@ -20,8 +20,8 @@ const TweetsPage = () => {
     setIsLoadMoreVisible(false);
 
     fetchTweets(page)
-      .then((newUsers) => {
-        setUsers((prevUsers) => [...prevUsers, ...newUsers]);
+      .then(newUsers => {
+        setUsers(prevUsers => [...prevUsers, ...newUsers]);
         setIsLoading(false);
         setIsLoadMoreVisible(true);
       })
@@ -35,7 +35,7 @@ const TweetsPage = () => {
   }, [page, users.length]);
 
   const handleFollowClick = (userId, isFollowing) => {
-    const updatedUsers = users.map((user) => {
+    const updatedUsers = users.map(user => {
       if (user.id === userId) {
         const updatedUser = {
           ...user,
@@ -51,20 +51,20 @@ const TweetsPage = () => {
   };
 
   const onButtonLoadMore = () => {
-    setPage((prevPage) => prevPage + 1);
+    setPage(prevPage => prevPage + 1);
   };
 
   const filterUsers = (users, selectedFilter) => {
     switch (selectedFilter) {
-      case "show all":
+      case 'show all':
         return users;
-      case "follow":
+      case 'follow':
         return users.filter(
-          (user) => loadFromStorage(`tweet_${user.id}`) !== true
+          user => loadFromStorage(`tweet_${user.id}`) !== true
         );
-      case "followings":
+      case 'followings':
         return users.filter(
-          (user) => loadFromStorage(`tweet_${user.id}`) === true
+          user => loadFromStorage(`tweet_${user.id}`) === true
         );
       default:
         return users;
